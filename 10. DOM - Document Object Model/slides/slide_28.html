@@ -1,0 +1,17 @@
+<body>
+   <script type="text/javascript" src="../../Scripts/dom_api.js"></script>
+   <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+   </ul>
+   <ol>
+      <li>Item 1</li>
+      <li>Item 2</li>
+   </ol>
+   <script type="text/javascript">
+      console.log( getElemsByTag( 'li' ).length );          // 4
+      var ul = getElemsByTag( 'UL' )[ 0 ];
+      console.log( ul.getElemsByTag( 'li' ).length );       // 2
+      console.log( getElemsByTag( '*' ).length );           // 11
+   </script>
+</body>

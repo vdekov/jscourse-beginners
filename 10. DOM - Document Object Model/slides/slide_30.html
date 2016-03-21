@@ -1,0 +1,13 @@
+<body>
+   <ol id="my-list">
+      <li class="item item-odd item-1">First Item</li>
+      <li class="item item-even item-2">Second Item</li>
+      <li class="item item-odd item-3">Third Item</li>
+   </ol>
+   <script type="text/javascript">
+      var list       = document.getElementById( 'my-list' );
+      var items_all  = document.getElementsByClassName( 'item' );
+      var items_odd  = list.getElementsByClassName( 'item item-odd' );
+      console.log( items_all.length, items_odd.length );       // 3, 2
+   </script>
+</body>

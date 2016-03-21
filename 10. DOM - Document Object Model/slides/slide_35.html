@@ -1,0 +1,16 @@
+<body>
+   <h1>Page <strong>title</strong></h1>
+   <div id="container">
+      <p class="regular"><strong>Info</strong></p>
+      <p class="notice"><strong>Warning</strong></p>
+      <p class="notice"><strong>Warning</strong></p>
+   </div>
+   <p class="notice">Notice outside div</p>
+   <script type="text/javascript">
+      var div = document.querySelector( 'div' );
+      console.log( div == document.querySelector( '#container' ) );   // true
+      console.log( div == document.getElementById( 'container' ) );   // true
+      var notice = div.querySelectorAll( '.notice' );
+      console.log( notice, notice.length );                           // NodeList, 2
+   </script>
+</body>

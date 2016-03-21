@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>09. OOP application - Practice</title>
+</head>
+<body>
+   <script type="text/javascript" src="Scripts/light.js"></script>
+   <script type="text/javascript" src="Scripts/traffic.js"></script>
+   <script type="text/javascript">
+      console.log( '>>> Init AutoTraffic' );
+      var AutoTraffic = new Traffic( 'auto' );
+      console.log( '---Stop AutoTraffic' );
+      AutoTraffic.stop();
+      console.log( '---Pass AutoTraffic' );
+      AutoTraffic.pass();
+      
+      console.log( '>>> Init PeopleTraffic' );
+      var PeopleTraffic = new Traffic( 'people' );
+      console.log( '---Stop PeopleTraffic' );
+      PeopleTraffic.stop();
+      console.log( '---Pass PeopleTraffic' );
+      PeopleTraffic.pass();
+   </script>
+</body>
+</html>

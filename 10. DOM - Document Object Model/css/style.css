@@ -1,0 +1,29 @@
+.container {
+   width: 1000px;
+   margin: 0 auto;
+   border: 1px solid #ccc;
+}
+
+#subject {
+   text-align: center;
+   border: none;
+}
+
+form label {
+   display: block;
+   font-weight: bold;
+}
+
+table td {
+   border: 1px solid #ddd;
+}
+
+.news-item {
+   margin: 0 20px;
+   overflow: hidden;
+}
+
+.news-item img {
+   margin-right: 20px;
+   float: left;
+}

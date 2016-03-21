@@ -1,0 +1,14 @@
+<body>
+   <form id="my-form">
+      <input type="text" name="first_name">
+      <input type="text" name="last_name">
+      <input type="checkbox" name="prefs[]" value="1">
+      <input type="checkbox" name="prefs[]" value="2">
+   </form>
+   <script type="text/javascript">
+      var form       = document.getElementById( 'my-form' );
+      var first_name = document.getElementsByName( 'first_name' );
+      var prefs      = form.getElementsByName( 'prefs[]' );
+      console.log( first_name.length, prefs.length );        // 1, 2
+   </script>
+</body>
