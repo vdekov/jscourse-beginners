@@ -13,7 +13,7 @@
 function getElemsByTag( ancestor, tag ) {
    tag      = tag       || '*';  // get all elements by default
    ancestor = ancestor  || document;
-   return toArray( ancestor.getElementsByTagName( tag ) );
+   return Array.from( ancestor.getElementsByTagName( tag ) );
 }
 
 /** 
@@ -32,7 +32,7 @@ function getElemsByClass( ancestor, name ) {
       // API natively supported
       return [].slice.call( ancestor.getElementsByClassName( name ) );
    }
-   return toArray( getElemsByTag( '*', ancestor ) ).filter( function ( elem ) {
+   return Array.from( getElemsByTag( '*', ancestor ) ).filter( function ( elem ) {
       var classes = name.split(' ');
       for ( var i=0; i<classes.length; i += 1 ) {
          if ( ! classes[i] ) {
