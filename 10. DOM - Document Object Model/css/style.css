@@ -1,3 +1,8 @@
+html body {
+   background-color: #fff;
+   font-family: Verdana;
+}
+
 .container {
    width: 1000px;
    margin: 0 auto;
@@ -16,6 +21,11 @@ form label {
 
 table td {
    border: 1px solid #ddd;
+}
+
+#news-container {
+   margin: 20px;
+   border: 2px dashed #bbb;
 }
 
 .news-item {
