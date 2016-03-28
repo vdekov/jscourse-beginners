@@ -1,0 +1,15 @@
+<div id="element">
+   <p>Hi, I am div!</p>
+</div>
+
+<script type="text/javascript">
+   var div = document.querySelector( '#element' );
+   
+   div.innerHTML = [
+      '<table border="1" width="300">',
+         '<tr>',
+            '<td>Hello, inner HTML!</td>',
+         '</tr>',
+      '</table>'
+   ].join('');
+</script>

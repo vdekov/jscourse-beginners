@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head></head>
+<body>
+   <div id="result"></div>
+   <script type="text/javascript">
+      var data = [
+         { label : 'Ordered Item 1' },
+         {
+            label : 'Ordered Item 2',
+            list  : [
+               { label : 'Ordered Sub Item 2.1' },
+               { label : 'Ordered Sub Item 2.2' },
+               { label : 'Ordered Sub Item 2.3' }
+            ]
+         },
+         {
+            label : 'Ordered Item 3',
+            list  : {
+               1 : {
+                  label : 'Unordered Sub Item 3.1',
+                  list  : {
+                     1: { label : 'Unordered Sub Item 3.1.1' },
+                     2: { label : 'Unordered Sub Item 3.1.2' }
+                  }
+               },
+               2 : { label : 'Sub Item 3.2' },
+               3 : {
+                  label : 'Sub Item 3.3',
+                  list  : [
+                     { label : 'Ordered Sub Item 3.3.1' },
+                     { label : 'Ordered Sub Item 3.3.2' },
+                     { label : 'Ordered Sub Item 3.3.3' }
+                  ]
+               }
+            }
+         }
+      ];
+      
+      console.time( 'timer' );
+      
+      var div = document.getElementById( 'result' );
+      var ul  = document.createElement( 'ul' );
+      var ol  = document.createElement( 'ol' );
+      var li  = document.createElement( 'li' );
+      
+      function printList( list, font_size ) {
+         var element   = list instanceof Array ? ol.cloneNode() : ul.cloneNode();
+         var font_size = font_size || 16;
+         
+         element.style[ 'fontSize' ] = font_size + 'px';
+         for ( var key in list ) {
+            var current_li = li.cloneNode();
+            current_li.appendChild( document.createTextNode( list[ key ].label ) );
+            element.appendChild( current_li );
+            
+            if ( list[ key ].list ) {
+               var new_font_size = font_size - 2 < 6 ? 6 : font_size - 2;
+               current_li.appendChild(
+                  printList( list[ key ].list, new_font_size )
+               );
+            }
+         }
+         
+         return element;
+      }
+
+      result.appendChild( printList( data ) );
+      
+      console.timeEnd( 'timer' );
+   </script>
+</body>
+</html>

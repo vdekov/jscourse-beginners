@@ -1,0 +1,14 @@
+<div id="element">
+   <p>
+      Hi, I am div!
+   </p>
+</div>
+
+<script type="text/javascript">
+   var div = document.querySelector( '#element' );
+   console.log( div.innerHTML );
+   
+   div.innerHTML = '<strong>Let\'s change the content!</strong>';
+   
+   // document.body.innerHTML = '';  // Replaces body content with an empty string.
+</script>

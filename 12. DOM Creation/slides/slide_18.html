@@ -1,0 +1,20 @@
+<style type="text/css">
+   #element {
+      height: 1em;   margin: 10px;
+      color: white;  background: red;
+   }
+</style>
+
+<div id="element">
+   <p>Hi, I am p in div!</p>
+</div>
+
+<script type="text/javascript">
+   var div = document.querySelector( '#element' );
+   
+   // clone only the element
+   document.body.appendChild( div.cloneNode() );
+   
+   // clone the whole tree
+   document.body.appendChild( div.cloneNode( true ) );
+</script>

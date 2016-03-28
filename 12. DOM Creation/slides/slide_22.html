@@ -1,0 +1,19 @@
+<table border="1"><tr></tr></table>
+
+<script type="text/javascript">
+   var td1 = document.createElement( 'td' );
+   var td2 = document.createElement( 'td' );
+   td1.appendChild( document.createTextNode( 'cell #1' ) );
+   td2.appendChild( document.createTextNode( 'cell #2' ) );
+   
+   // create a fragment & wrap our cells
+   var fragment = document.createDocumentFragment();
+   fragment.appendChild( td1 );
+   fragment.appendChild( td2 );
+   fragment.appendChild( fragment.cloneNode( true ) );
+   fragment.appendChild( fragment.cloneNode( true ) );
+   fragment.appendChild( fragment.cloneNode( true ) );
+   
+   // inject our cells into the table
+   document.querySelector( 'tr' ).appendChild( fragment );
+</script>

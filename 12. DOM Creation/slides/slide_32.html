@@ -1,0 +1,16 @@
+<div class="container">
+   <div class="inner">
+      <div><!-- --></div><div><!-- --></div>
+      <div><!-- --></div><div><!-- --></div>
+      <!-- ... -->
+      <div><!-- --></div>
+   </div>
+</div>
+
+<script type="text/javascript">
+   // slow!
+   /* document.querySelector( '.container' ).innerHTML = ''; */
+   
+   // fast
+   document.querySelector( '.inner' ).remove();
+</script>
