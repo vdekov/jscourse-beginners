@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+   <style type="text/css">
+   
+   #parent {
+      background: red;
+      width: 200px;
+      height: 200px;
+   }
+   
+   #child {
+      background: green;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+   }
+   
+   </style>
+</head>
+<body>
+   <div id="parent">
+      Parent
+      <div id="child">
+         Child
+      </div>
+   </div>
+   <script type="text/javascript">
+      var parent = document.getElementById( 'parent' );
+      var child  = document.getElementById( 'child' );
+      
+      parent.addEventListener( 'click', function () {
+         console.log( 'Click PARENT' );
+      }, true );
+      
+      child.addEventListener( 'click', function () {
+         console.log( 'Click CHILD' );
+      });
+   </script>
+</body>
+</html>

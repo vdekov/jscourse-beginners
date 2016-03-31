@@ -1,0 +1,15 @@
+<a href="#">Click me!</a>
+
+<script type="text/javascript">
+   var a = document.querySelector( 'a' );
+   
+   var handler = function () {
+      console.log( 'I am event listener #1' );
+   };
+   
+   // add event handle
+   a.addEventListener( 'click', handler, false );
+   
+   // remove the event listener
+   a.removeEventListener( 'click', handler, false );
+</script>

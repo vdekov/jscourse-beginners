@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+</head>
+<body>
+   <button>Click click click!</button>
+   <div id="counter"></div>
+   <script type="text/javascript">
+      var button = document.querySelector( 'button' );
+      var div    = document.getElementById( 'counter' );
+      
+      var counter = 0;
+      
+      button.addEventListener( 'click', function () {
+         counter++;           // counter += 1;
+         div.innerHTML = counter;
+         window.localStorage.setItem( 'counter', counter );
+      }, false );
+      
+      window.addEventListener( 'load', function () {
+         counter = localStorage.getItem( 'counter' ) || 0;
+         div.innerHTML = counter;
+      });
+   </script>
+</body>
+</html>

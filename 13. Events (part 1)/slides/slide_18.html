@@ -1,0 +1,14 @@
+<div>
+   <a href="http://it-academy.bg">Click me!</a>
+</div>
+
+<script type="text/javascript">
+   document.querySelector( 'a' ).onclick = function ( ) {
+      console.log( 'Link was clicked!' );
+      
+      // do something with the <a> element
+      this.style.display = 'none';
+      return false;
+   }
+</script>
+

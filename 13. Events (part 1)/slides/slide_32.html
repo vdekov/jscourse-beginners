@@ -1,0 +1,23 @@
+<a href="#">Click me!</a>
+
+<script type="text/javascript">
+   var a = document.getElementsByTagName( 'a' )[0];
+   
+   var handler = function () {
+      console.log( 'I am event listener #1' );
+   };
+   
+   // add event handle
+   a.attachEvent( 'onclick', handler );
+   
+   // remove the event listener
+   a.detachEvent( 'onclick', handler );
+   
+   // add another event
+   a.attachEvent( 'onclick', function () {
+      console.log(
+         '`this` points to root object: ' +
+         this === window
+      );
+   });
+</script>

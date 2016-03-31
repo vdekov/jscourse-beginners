@@ -1,0 +1,15 @@
+<a href="#">Click me!</a>
+
+<script type="text/javascript">
+   // add event handler
+   document.body.addEventListener( 'click', function ( ) {
+      console.log( 'I am event listener #1' );
+   }, false );  // will be executed in Bubbling phase
+   
+   // add another event handler
+   document.body.addEventListener( 'click', function ( ) {
+      console.log( 'I am event listener #2' );
+   }, true );   // will be executed in Capturing phase
+   
+   // who is going to be executed first?
+</script>

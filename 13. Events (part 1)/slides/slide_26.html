@@ -1,0 +1,14 @@
+<a href="http://it-academy.bg">Click me!</a>
+
+<script type="text/javascript">
+   var a = document.querySelector( 'a' );
+   
+   // add event handler
+   // do not allow browser to open the link
+   a.addEventListener( 'click', function ( event ) {
+      console.log( 'I am event listener #1' );
+      // WARNING! THIS WON'T WORK!
+      // The browser will still load the link...
+      return false;
+   }, false);
+</script>
