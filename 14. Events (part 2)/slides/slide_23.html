@@ -1,0 +1,18 @@
+<div style="padding: 30px; background-color: #ccc">
+   <p style="border: 1px solid red">
+      I am paragraph!
+   </p>
+</div>
+
+<script src="../../Scripts/helpers.js"></script>
+<script src="../../Scripts/events.js"></script>
+<script type="text/javascript">
+   var div = document.querySelector( 'div' )
+   
+   div.addEventListener( 'click', function ( e ) {
+      console.log( e );
+      console.log( e.target );
+   });
+   
+   div.triggerEvent( 'click' );
+</script>

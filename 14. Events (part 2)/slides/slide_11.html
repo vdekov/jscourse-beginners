@@ -1,0 +1,20 @@
+<div style="padding: 30px; background-color: #ccc">
+   <p style="border: 1px solid red">
+      I am paragraph!
+   </p>
+</div>
+
+<script type="text/javascript">
+   document.querySelector( 'div' ).onclick = function ( e ) {
+      // `e` is our Event Object
+      e        = e        || window.event;   // legacy IE 
+      e.target = e.target || e.srcElement;   // legacy IE
+      
+      console.log( e );
+      // `e.target` is the element which handles the event
+      console.log( e.target );
+      
+      console.assert( e.target !== this, 'The target is <div>' );
+      console.assert( e.type == 'click', 'Event is not "click"');
+   }
+</script>

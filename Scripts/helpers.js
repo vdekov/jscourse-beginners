@@ -1,3 +1,23 @@
+/** 
+ * @function extend
+ * 
+ * Extends one object with properties of other objects
+ *
+ * @param obj {Object} The object to extend
+ *
+ * @returns {Object} The extended object
+**/
+function extend( obj ) {
+   for ( var i=1, l=arguments.length; i<l; i += 1 ) {
+      for ( var name in arguments[i] ) {
+         if ( arguments[i].hasOwnProperty( name ) ) {
+            obj[ name ] = arguments[i][ name ];
+         }
+      }
+   }
+   return obj;
+}
+
 /**
  * @function rgbToHex
  * 

@@ -1,0 +1,31 @@
+<div style="padding: 30px; background-color: #ccc">
+   <p style="border: 1px solid red">
+      <a href="http://google.com">Google</a>
+   </p>
+</div>
+
+<script src="../../Scripts/helpers.js"></script>
+<script type="text/javascript">
+   var div = document.querySelector('div');
+   
+   // our "standard" event handler
+   function handleOnClick( e ) {
+      this.style.background     = 'red';
+      e.target.style.background = 'green';
+      e.preventDefault();
+   }
+   
+   div.attachEvent( 'onclick', function () {
+      // get our event object & standartize it
+      var event = extend( window.event, {
+         target          : event.srcElement,
+         preventDefault  : function () {
+            event.returnValue = false;
+         },
+         stopPropagation : function () {
+            event.cancelBubble = true;
+         }
+      });
+      handleOnClick.call( div, event );
+   });
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+   <style type="text/css">
+      div {
+         position: absolute;
+         padding: 30px;
+         background-color: #ccc;
+      }
+      
+      div p {
+         border: 1px solid red;
+      }
+   </style>
+</head>
+<body>
+   <div>
+      <p>
+         I am paragraph!
+      </p>
+   </div>
+   
+   <script type="text/javascript">
+      var div = document.querySelector( 'div' )
+      
+      function move ( e ) {
+         div.style.left = e.pageX + 'px';
+         div.style.top  = e.pageY + 'px';
+      }
+      
+      div.addEventListener( 'mousedown', function ( e ) {
+         document.addEventListener( 'mousemove', move );
+         this.addEventListener( 'mouseup', function () {
+            document.removeEventListener( 'mousemove', move );
+         });
+      });
+   </script>
+</body>
+</html>

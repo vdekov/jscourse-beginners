@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+   <style type="text/css">
+      label {
+         display: block;
+      }
+   </style>
+</head>
+<body>
+   <h2>Form</h2>
+   <form name="signup_form" action="">
+      <label>
+         First Name: <input type="text" name="first_name" placeholder="Enter your first name...">
+      </label>
+      <label>
+         Last Name: <input type="text" name="last_name" placeholder="Enter your last name...">
+      </label>
+      <label>
+         E-mail: <input type="email" name="email" placeholder="And your email address...">
+      </label>
+      <label>
+         Sex: 
+            <input type="radio" name="sex" value="male"> Male
+            <input type="radio" name="sex" value="female"> Female
+      </label>
+      <button type="submit">Submit</button>
+   </form>
+   
+   <ul id="errors"></ul>
+   
+   <script type="text/javascript">
+      var form       = document.querySelector( 'form' );
+      var first_name = document.getElementsByName( 'first_name' )[ 0 ];
+      var last_name  = document.getElementsByName( 'last_name' )[ 0 ];
+      var email      = document.getElementsByName( 'email' )[ 0 ];
+      var sex        = document.getElementsByName( 'sex' )[ 0 ];
+      
+      var ul_errors  = document.getElementById( 'errors' );
+      var li         = document.createElement( 'li' );
+      var errors     = {};
+      
+      [ first_name, last_name ].forEach( function ( input ) {
+         input.addEventListener( 'input', function ( e ) {
+            // console.log( String.fromCharCode( e.keyCode ) );
+            
+            var value = this.value;
+            var name  = this.getAttribute( 'name' );
+            if ( value.length > 15 ) {
+               errors[ name ] = 'The length of the field ' + name + ' is too large.';
+            } else {
+               errors[ name ] = '';
+            }
+            
+            showErrors();
+         });
+      });
+      
+      function showErrors ( ) {
+         ul_errors.innerHTML = '';
+         
+         for ( var key in errors ) {
+            if ( errors[ key ] === '' ) {
+               continue;
+            }
+            var list_item = li.cloneNode();
+            list_item.appendChild( document.createTextNode( errors[ key ] ) )
+            ul_errors.appendChild( list_item );
+         };
+      }
+   </script>
+</body>
+</html>
