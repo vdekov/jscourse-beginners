@@ -1,0 +1,43 @@
+Class Calculator
+ - forEach button -> getDOM() -> onClick
+
+Class Button
+ - value
+ - type
+ - dom
+ - getDOM
+ 
+ 
+ == Structure ==
+<input type="text" name="result" value="1234567890">
+<table border="1" cellpadding="5" cellspacing="5">
+   <tr>
+      <td>AC</td>
+      <td>+/-</td>
+      <td>%</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>*</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>-</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>+</td>
+   </tr>
+   <tr>
+      <td colspan="2">0</td>
+      <td>.</td>
+      <td>=</td>
+   </tr>
+</table>
