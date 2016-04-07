@@ -1,0 +1,23 @@
+<div>
+   <p>I am paragraph!</p>
+</div>
+
+<script src="../../Scripts/dom_api.js"></script>
+<script type="text/javascript">
+   var style = document.createElement( 'style' );
+   style.inject( document.body );
+   
+   // add some CSS
+   style.setCSS([
+      'div {',
+         'padding: 30px;',
+         'background-color: #ccc;',
+      '}',
+      'p {',
+         'border: 1px solid red;',
+      '}'
+   ].join(''));
+   
+   // print the CSS styles
+   console.log( style.getCSS() );
+</script>

@@ -1,0 +1,14 @@
+<div style="padding: 30px; background-color: #ccc">
+   <p style="border: 1px solid red">
+      I am paragraph!
+   </p>
+</div>
+
+<script type="text/javascript">
+   // get the `div` background color
+   console.log(
+      document.defaultView.getComputedStyle(
+         document.querySelector( 'div' )
+      ).getPropertyValue( 'background-color' )
+   );
+</script>
