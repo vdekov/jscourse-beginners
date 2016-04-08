@@ -56,14 +56,7 @@ Calculator.prototype = {
                td.setAttribute( 'colspan', 2 ); 
             }
             
-            this.buttons_instances[ button.value ] = new Button(
-               td,
-               {
-                  value : button.value,
-                  type  : button.type
-               }
-            );
-            
+            this.buttons_instances[ button.value ] = new Button( td, button );
             this.buttons_instances[ button.value ].onClick( this.buttonClick.bind( this, button ) );
          }, this );
       }, this );
