@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style type="text/css">
+      body {
+         margin: 0;
+         padding: 10px 20px;
+         font-family: Helvetica, Arial, sans-serif;
+      }
+      
+      td:first-child { width: 300px }
+      td { width: 200px; }
+      
+      td div {
+         overflow: hidden;
+         max-height: 100px;
+      }
+   </style>
+</head>
+<body>
+   <h1>DOM Operations practice</h1>
+   <h2>Preferences</h2>
+   Global table rows maximum height:
+   <input type="text" name="max_height">px
+   
+   <h2>Table</h2>
+   <script type="text/javascript" src="../Scripts/helpers.js"></script>
+   <script type="text/javascript" src="../Scripts/dom_api.js"></script>
+   <script type="text/javascript">
+      var table_data = [
+         [
+            'Lorem Ipsum is simply dummy text',
+            'Set row height: <input type="text" name="row_max_height">px'
+         ],
+         [
+            'Lorem Ipsum has been the industry\'s standard dummy text.<br/>When an unknown printer took a galley of type',
+            'Set row height: <input type="text" name="row_max_height">px'
+         ],
+         [
+            'It has survived not only five centuries.<br/>But also the leap into electronic typesetting.',
+            'Set row height: <input type="text" name="row_max_height">px'
+         ],
+         [
+            'It was popularised in the 1960s with the release of Letraset sheets.<br>Desktop publishing software like Aldus PageMaker.',
+            'Set row height: <input type="text" name="row_max_height">px'
+         ],
+         [
+            'It is a long established fact that a reader will be distracted.By the readable content of a page' +
+            'It is a long established fact that a reader will be distracted.By the readable content of a page.',
+            'Set row height: <input type="text" name="row_max_height">px'
+         ]
+      ];
+      
+      var table = document.createElement( 'table' );
+      table.setAttribute( 'border', '1' );
+      
+      table_data.forEach( function ( row ) {
+         var tr = document.createElement( 'tr' );
+         table.appendChild( tr );
+         row.forEach( function ( cell ) {
+            var td = document.createElement( 'td' );
+            td.innerHTML = '<div>' + cell + '</div>'
+            tr.appendChild( td );
+         });
+      });
+      
+      document.body.appendChild( table );
+      
+      var rows_max_height   = document.getElementsByName( 'max_height' )[0];
+      var rows_input_fields = [].slice.call( document.getElementsByName( 'row_max_height' ) );
+      var change_event      = document.createEvent( 'Event' );
+      change_event.initEvent( 'change', true, true );
+      
+      window.addEventListener( 'load', function () {
+         var max_height = parseInt( getComputedStyle( table.querySelector( 'div ') ).getPropertyValue( 'max-height' ), 10 );
+         rows_max_height.value = max_height;
+         rows_input_fields.forEach( function ( input ) {
+            if ( input.value == '' || max_height < parseInt( input.value, 10 ) ) {
+               input.value = max_height;
+               input.dispatchEvent( change_event );
+            }
+         });
+      });
+      
+      rows_max_height.addEventListener( 'change', function ( e ) {
+         var rule = 'td div { max-height: ' + this.value + 'px; }';
+         document.styleSheets[0].insertRule( rule, document.styleSheets[0].rules.length );
+         
+         rows_input_fields.forEach( function ( input ) {
+            input.dispatchEvent( change_event );
+         });
+         
+      });
+      
+      rows_input_fields.forEach( function ( input ) {
+         input.addEventListener( 'change', function ( e ) {
+            var value = parseInt( rows_max_height.value, 10 ) > parseInt( this.value, 10 ) ? this.value : rows_max_height.value;
+            var divs = this.parentNode.parentNode.parentNode.querySelectorAll( 'div ');
+            for ( var k = 0, l = divs.length; k < l; k++ ) {
+               divs[ k ].style[ 'maxHeight' ] = value + 'px';
+            }
+            this.value = value;
+         });
+      });
+   </script>
+</body>
+</html>
