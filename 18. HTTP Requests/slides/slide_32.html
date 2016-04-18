@@ -1,0 +1,14 @@
+<form>
+   <input type="text" name="name" value="Form">
+   <input type="hidden" name="foo" value="bar">
+</form>
+
+<script type="text/javascript">
+   var xhr = new XMLHttpRequest();
+   xhr.open( 'POST', 'hello.php', true );
+   xhr.onload = function () {
+      document.body.innerHTML = this.responseText;
+   }
+   // send the form data using FormData
+   xhr.send( new FormData( document.querySelector('form') ) );
+</script>

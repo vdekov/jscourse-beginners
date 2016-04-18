@@ -237,3 +237,52 @@ function toDashes( string ) {
    }
    return chars.join('');
 }
+
+/**
+ * @namespace QueryString
+**/
+var QueryString = {};
+
+/**
+ * @function QueryString.stringify
+ *
+ * Accepts an object & converts it into url query string
+ *
+ * @param data {Object} The object we want to convert into query string
+ *
+ * @returns {String}
+**/
+QueryString.stringify = function ( data ) {
+   if ( typeof( data ) !== 'object' ) {
+      return String( data );
+   }
+   var query = [];
+   for ( var name in data ) {
+      if ( data.hasOwnProperty( name ) ) {
+         query.push( name + '=' + data[ name ] );
+      }
+   }
+   return query.join('&');
+}
+
+/**
+ * @function QueryString.parse
+ *
+ * Accepts an url query string & converts it into data object
+ *
+ * @param string {String} The query string we want to convert into data object
+ *
+ * @returns {Object}
+**/
+QueryString.parse = function ( string ) {
+   if ( typeof( string ) !== 'string' ) {
+      return string;
+   }
+   var data    = {};                // the data object
+   var pairs   = string.split('&'); // array of each param name=value
+   for ( var i=0, l=pairs.length; i<l; i += 1 ) {
+      var param = pairs[i].split('=');
+      data[ param.shift() ] = param.join('=');
+   }
+   return data;
+}

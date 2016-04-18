@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Request.XHR</title>
+</head>
+<body>
+<script type="text/javascript" src="../../Scripts/helpers.js"></script>
+<script type="text/javascript" src="../../Scripts/request.js"></script>
+<script type="text/javascript">
+   var xhr = new Request.XHR({
+      method    : 'POST',
+      url       : 'http://dekov.net/files/hello.php',
+      data      : {
+         name : 'Vladi',
+         foo  : 'bar'
+      },
+      onSuccess : function ( response ) {
+         // append the HTML
+         var tmp       = document.createElement('div');
+         tmp.innerHTML = response;
+         document.body.appendChild( tmp );
+      }
+   });
+   
+   xhr.send();
+</script>
+</body>
+</html>
