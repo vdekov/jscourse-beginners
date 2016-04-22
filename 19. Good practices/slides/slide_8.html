@@ -1,0 +1,22 @@
+<div id="header">
+   <div class="inverted">
+      <a href="#">
+         <span>
+            <span class="inner">
+               <span>Link</span>
+            </span>
+         </span>
+      </a>
+   </div>
+</div>
+
+
+<script>
+   $( '#header .inverted a' ).on( 'click', function () {
+      // set class name to the inner span
+      // BAD!!!
+      $( '#header .inverted a .inner span' ).addClass( 'active' );
+      // Good!
+      $( this ).find( '.inner span' ).addClass( 'active' );
+   });
+</script>

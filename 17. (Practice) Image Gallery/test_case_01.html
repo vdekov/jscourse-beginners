@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style type="text/css">
+      body {
+         margin: 0;
+         padding: 10px 20px;
+         font-family: Helvetica, Arial, sans-serif;
+         text-align: center;
+      }
+      
+      .gallery {
+         display: inline-block;
+      }
+      
+      .image {
+         float: left;
+         width: 200px;
+         height: 200px;
+         margin-right: 20px;
+         vertical-align: bottom;
+         text-align: center;
+      }
+      
+      .image:nth-child(3n+1) {
+         clear: left;
+      }
+      
+      .image img {
+         max-width: 100%;
+      }
+      
+      .image a {
+         color: grey;
+         text-decoration: none;
+      }
+      
+      .image span {
+         line-height: 1.5em;
+      }
+      
+      .overlay {
+         position: fixed;
+         left: 0;
+         right: 0;
+         top: 0;
+         bottom: 0;
+         background: rgba( 0, 0, 0, .25 );
+      }
+      
+      .lightbox {
+         position: fixed;
+         left: 5%;
+         right: 5%;
+         top: 5%;
+         bottom: 5%;
+         padding: 20px;
+         background: white;
+      }
+      
+      .close {
+         position: absolute;
+         right: -9px;
+         top: -9px;
+         width: 18px;
+         height: 18px;
+         line-height: 18px;
+         color: white;
+         background: black;
+         text-decoration: none;
+         text-align: center;
+         border-radius: 50%;
+      }
+      
+      .lightbox img {
+         max-width: 100%;
+         height: 100%;
+      }
+   </style>
+</head>
+<body>
+   <h1>Gallery</h1>
+   <div id="gallery">
+      <!-- render gallery images here -->
+      
+      <div class="image">
+         <a href="#">
+            <img src="http://media1.santabanta.com/full1/Outdoors/Landscapes/landscapes-246a.jpg">
+            <span>Caption</span>
+         </a>
+      </div>
+      
+   </div>
+   <script type="text/javascript">
+      var images = [
+         {
+            src      : 'https://www.similarweb.com/blog/wp-content/uploads/2015/07/sleeping-panda.jpg',
+            caption  : 'Sleeping Panda'
+         },
+         {
+            src      : 'http://img0.mxstatic.com/wallpapers/a8d15bcb3ed5604f2dd7e79f35e4e9b3_large.jpeg',
+            caption  : 'Koala'
+         },
+         {
+            src      : 'http://www.pageresource.com/wallpapers/wallpaper/animals-chrome-elephants-baby-elephant-safari_1289399.jpg',
+            caption  : 'Elephant'
+         },
+         {
+            src      : 'http://cbs.umn.edu/sites/cbs.umn.edu/files/public/african_lion_king-wide_1.jpg',
+            caption  : 'Lion'
+         },
+         {
+            src      : 'http://www.zebrapen.com/wp-content/themes/zebra/images/zen/zebra--steel.png',
+            caption  : 'Zebra'
+         },
+         {
+            src      : 'http://www.robertotoole.com/wp-content/uploads/2014/04/Eagle-morning-strike-Robert-OToole-Photography-2014.JPG',
+            caption  : 'Eagle'
+         },
+         {
+            src      : 'http://perthzoo.wa.gov.au/wp-content/uploads/2015/02/Giraffe-eye-to-eyev1.jpg',
+            caption  : 'Giraffe'
+         },
+         {
+            src      : 'https://thelapine.ca/wp-content/uploads/Penguins.jpg',
+            caption  : 'Penguins'
+         },
+         {
+            src      : 'http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg',
+            caption  : 'Puppy'
+         }
+      ];
+      
+      // increase # of images for testing purposes
+      for ( var i=0, l=30-images.length; i<l; i ++ ) {
+         images.push({
+            src     : images[ i ].src,
+            caption : images[ i ].caption
+         });
+      }
+   </script>
+</body>
+</html>

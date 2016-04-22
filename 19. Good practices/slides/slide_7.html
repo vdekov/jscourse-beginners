@@ -1,0 +1,15 @@
+<html><head><!-- ...................................... --></head>
+<body>
+   <!-- ............................................... -->
+                                       <div id="my-element">
+                                          <!-- ...... -->
+                                                   <div class="text"></div>
+                                       </div>
+</body></html>
+
+<script type="text/javascript">
+   // Slow
+   document.querySelector( '.text' );
+   // Faster
+   document.getElementById( 'my-element' ).querySelector( '.text' );
+</script>
